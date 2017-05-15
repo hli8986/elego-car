@@ -101,22 +101,22 @@ void loop()
     stateChange();
     } */
   if (Serial.available() > 0) {
-    int v1 = Serial.parseInt();
     int v2 = Serial.parseInt();
+    int v1 = Serial.parseInt();
     int vr = v1;
     int vl = v2;
     simple_drive(vr, vl);
-    Serial.println(vr);
-    Serial.println(vl);
+    Serial.println(String(vr) + ' ' + vl);
+//    Serial.println(vl);
     //analogWrite(in2, abs(vr));
     //digitalWrite(in1, vr >= 0 ? LOW : HIGH);
 
     delay(10);
     while (Serial.available() > 0)
       Serial.read();
-    Serial.print("Time: ");
-    time = millis();
-    Serial.println(time);
+//    Serial.print("Time: ");
+//    time = millis();
+//    Serial.println(time);
   }
 }
 
